@@ -1,13 +1,24 @@
+//API呼び出し
+//API呼び出し
+async function callApi() {
+    const res = await fetch("https://jsonplaceholder.typicode.com/users");
+//    const users = await res.json();
+
+};
+
+callApi();
+
+//無限スクロール
 $(function(){
     add(0)
 
     $(window).on("scroll", function(){
         console.log($(window).scrollTop(), $(window).height(), $("html").height());
         if($(window).scrollTop() + $(window).height() >= $("html").height()){
-            // �Ō�̃C���f�b�N�X���擾
+            // 最後のインデックスを取得
             const obj = $(".added").last();
             const lastIndex = obj.find("p").text() - 0;
-            // �ǉ�
+            // 追加
             add(lastIndex + 1)
         }
     })
